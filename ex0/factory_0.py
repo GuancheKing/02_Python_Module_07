@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 from abc import ABC, abstractmethod
 from .creature import Creature
-from .creatures import Biyomon, Birdramon, Syakomon, Seadramon
+from .flame_creatures import Biyomon, Birdramon
+from .aqua_creatures import Syakomon, Seadramon
 
 
 class CreatureFactory(ABC):

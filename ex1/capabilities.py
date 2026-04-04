@@ -3,21 +3,23 @@ from abc import ABC, abstractmethod
 
 
 class HealCapability(ABC):
+    """Abstract capability for healing actions."""
 
     @abstractmethod
-    def heal(self, target) -> str:
-        return f"{self.name} healed"
+    def heal(self, target: str) -> str:
+        """Heal a target and return the corresponding message."""
+        raise NotImplementedError
 
 
 class TransformCapability(ABC):
-
-    def __init__(self, state: str) -> None:
-        self.state = state
+    """Abstract capability for transformation actions."""
 
     @abstractmethod
     def transform(self) -> str:
-        return f"{self.name} transformed"
+        """Transform the creature and return the corresponding message."""
+        raise NotImplementedError
 
     @abstractmethod
     def revert(self) -> str:
-        return f"{self.name} reverted"
+        """Revert the creature and return the corresponding message."""
+        raise NotImplementedError

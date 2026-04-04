@@ -33,7 +33,7 @@ def battle(factory1: CreatureFactory, factory2: CreatureFactory) -> None:
 
 
 def main() -> None:
-    """Run the test scenario for both factories and their battle."""
+    """Run the test scenario for both factories and their battle from ex0."""
     flame = FlameFactory()
     aqua = AquaFactory()
 
