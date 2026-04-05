@@ -8,6 +8,7 @@ from ex2 import NormalStrategy as Normal
 from ex2 import AggressiveStrategy as Aggressive
 from ex2 import DefensiveStrategy as Defensive
 from ex2.strategies import BattleStrategy
+from ex2.exceptions import InvalidStrategyCreatureError
 
 
 Opponent: TypeAlias = tuple[CreatureFactory, BattleStrategy]
@@ -39,10 +40,10 @@ def run_tournament(opponents: list[Opponent]) -> None:
     print(f"{len(opponents)} opponents involved")
 
     try:
-        for i in range(0, len(opponents)):
+        for i in range(len(opponents)):
             for j in range(i+1, len(opponents)):
                 battle(opponents[i], opponents[j])
-    except ValueError as error:
+    except InvalidStrategyCreatureError as error:
         print(f"Battle error, aborting tournament: {error}")
 
 

@@ -6,6 +6,7 @@ from ex0.creature import Creature
 from ex1.capabilities import HealCapability, TransformCapability
 from ex1.healing_creatures import Patamon, Angemon
 from ex1.transform_creatures import Gatomon, Betsumon
+from .exceptions import InvalidStrategyCreatureError
 
 
 class BattleStrategy(ABC):
@@ -45,9 +46,9 @@ class AggressiveStrategy(BattleStrategy):
     def act(self, creature: Creature) -> None:
         """Transform, attack, then revert."""
         if not self.is_valid(creature):
-            raise ValueError(
+            raise InvalidStrategyCreatureError(
                 f"Invalid creature '{creature.name}' for aggressive strategy"
-            )
+                )
         fighting_creature = cast(Gatomon | Betsumon, creature)
         print(fighting_creature.transform())
         print(fighting_creature.attack())
@@ -64,9 +65,8 @@ class DefensiveStrategy(BattleStrategy):
     def act(self, creature: Creature) -> None:
         """Attack and then heal."""
         if not self.is_valid(creature):
-            raise ValueError(
-                    f"Invalid creature '{creature.name}' for defensive"
-                    " strategy"
+            raise InvalidStrategyCreatureError(
+                f"Invalid creature '{creature.name}' for defensive strategy"
                 )
         fighting_creature = cast(Patamon | Angemon, creature)
         print(fighting_creature.attack())

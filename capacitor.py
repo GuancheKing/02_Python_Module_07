@@ -45,7 +45,7 @@ def test_transform_factory(factory: TransformCreatureFactory) -> None:
 
 
 def main() -> None:
-    """Run the exercise 1 test scenario."""
+    """Run the test scenario."""
     healing = HealingCreatureFactory()
     transform = TransformCreatureFactory()
 
