@@ -7,7 +7,7 @@ class Biyomon(Creature):
 
     def __init__(self) -> None:
         """Initialize Biyomon with fixed attributes."""
-        super().__init__("Biyomon", "Flying")
+        super().__init__("Biyomon", "Fire/Flying")
 
     def attack(self) -> str:
         """Return Biyomon's attack message."""
